@@ -16,19 +16,19 @@ pub struct JobLevel {
         rename = "CreatedTime",
         with = "date_format"
     )]
-    created_time: DateTime<Utc>,
+    pub created_time: DateTime<Utc>,
     #[serde(rename = "IsDeleted")]
-    is_deleted: bool,
+    pub is_deleted: bool,
     #[serde(rename = "Level")]
-    level: i32,
+    pub level: i32,
     #[serde(rename = "Name")]
-    name: String,
+    pub name: String,
     #[serde(rename = "OId")]
-    oid: String,
+    pub oid: String,
     #[serde(rename = "Status")]
-    status: i32,
+    pub status: i32,
     #[serde(rename = "StdIsDeleted")]
-    std_is_deleted: bool,
+    pub std_is_deleted: bool,
     #[serde(rename = "_id")]
-    id: String,
+    pub id: String,
 }

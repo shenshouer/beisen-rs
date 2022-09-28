@@ -10,19 +10,19 @@ pub struct Contract {
         rename = "ActualTerminateDate",
         with = "date_format"
     )]
-    actual_terminate_date: DateTime<Utc>,
+    pub actual_terminate_date: DateTime<Utc>,
     #[serde(rename = "CreatedTime", with = "date_format")]
-    created_time: DateTime<Utc>,
+    pub created_time: DateTime<Utc>,
     #[serde(rename = "FirstParty")]
-    first_party: String,
+    pub first_party: String,
     #[serde(rename = "IsDeleted")]
-    is_deleted: bool,
+    pub is_deleted: bool,
     #[serde(rename = "OId")]
-    oid: String,
+    pub oid: String,
     #[serde(rename = "StdIsDeleted")]
-    std_is_deleted: bool,
+    pub std_is_deleted: bool,
     #[serde(rename = "TerminateDate", with = "date_format")]
-    terminate_date: DateTime<Utc>,
+    pub terminate_date: DateTime<Utc>,
     #[serde(rename = "UserID")]
-    user_id: u32,
+    pub user_id: u32,
 }

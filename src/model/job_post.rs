@@ -6,23 +6,23 @@ use crate::utils::datetime::{self, date_format};
 #[derive(Debug, Deserialize, Serialize)]
 pub struct JobPost {
     #[serde(rename = "Code")]
-    code: String,
+    pub code: String,
     #[serde(
         default = "datetime::default",
         rename = "CreatedTime",
         with = "date_format"
     )]
-    created_time: DateTime<Utc>,
+    pub created_time: DateTime<Utc>,
     #[serde(rename = "Name")]
-    name: String,
+    pub name: String,
     #[serde(rename = "OId")]
-    oid: String,
+    pub oid: String,
     #[serde(rename = "OIdJobLevelType")]
-    oid_job_level_type: String,
+    pub oid_job_level_type: String,
     #[serde(rename = "Status")]
-    status: i32,
+    pub status: i32,
     #[serde(rename = "StdIsDeleted")]
-    std_is_deleted: bool,
+    pub std_is_deleted: bool,
     #[serde(rename = "_id")]
-    id: String,
+    pub id: String,
 }

@@ -6,101 +6,101 @@ use crate::utils::datetime::{self, date_format};
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Organization {
     #[serde(default, rename = "BroadType")]
-    broad_type: String,
+    pub broad_type: String,
     #[serde(rename = "BusinessModifiedBy")]
-    business_modified_by: u32,
+    pub business_modified_by: u32,
     #[serde(
         default = "datetime::default",
         rename = "BusinessModifiedTime",
         with = "date_format"
     )]
-    business_modified_time: DateTime<Utc>,
+    pub business_modified_time: DateTime<Utc>,
     #[serde(
         default = "datetime::default",
         rename = "ChangeDate",
         with = "date_format"
     )]
-    change_date: DateTime<Utc>,
+    pub change_date: DateTime<Utc>,
     #[serde(default, rename = "Code")]
-    code: String,
+    pub code: String,
     #[serde(rename = "CreatedBy")]
-    created_by: u32,
+    pub created_by: u32,
     #[serde(
         default = "datetime::default",
         rename = "CreatedTime",
         with = "date_format"
     )]
-    created_time: DateTime<Utc>,
+    pub created_time: DateTime<Utc>,
     #[serde(
         default = "datetime::default",
         rename = "EstablishDate",
         with = "date_format"
     )]
-    establish_date: DateTime<Utc>,
+    pub establish_date: DateTime<Utc>,
     #[serde(default, rename = "FirstLevelOrganization")]
-    first_level_organization: u32,
+    pub first_level_organization: u32,
     #[serde(default, rename = "HRBP")]
-    hrbp: u32,
+    pub hrbp: u32,
     #[serde(default, rename = "IsDeleted")]
-    is_deleted: bool,
+    pub is_deleted: bool,
     #[serde(default, rename = "IsVirtualOrg")]
-    is_virtual_org: bool,
+    pub is_virtual_org: bool,
     #[serde(default, rename = "Level")]
-    level: String,
+    pub level: String,
     #[serde(rename = "ModifiedBy")]
-    modified_by: u32,
+    pub modified_by: u32,
     #[serde(
         default = "datetime::default",
         rename = "ModifiedTime",
         with = "date_format"
     )]
-    modified_time: DateTime<Utc>,
+    pub modified_time: DateTime<Utc>,
     #[serde(rename = "Name")]
-    name: String,
+    pub name: String,
     #[serde(rename = "OId")]
-    oid: u32,
+    pub oid: u32,
     #[serde(default, rename = "OIdOrganizationType")]
-    oid_organization_type: String,
+    pub oid_organization_type: String,
     #[serde(default, rename = "OrderAdmin")]
-    order_admin: u32,
+    pub order_admin: u32,
     #[serde(rename = "POIdOrgAdmin")]
-    poid_org_admin: i32,
+    pub poid_org_admin: i32,
     #[serde(default, rename = "POIdOrgAdminNameTreePath")]
-    poid_org_admin_name_tree_path: String,
+    pub poid_org_admin_name_tree_path: String,
     #[serde(default, rename = "POIdOrgAdmin_TreeLevel")]
-    poid_org_admin_tree_level: i32,
+    pub poid_org_admin_tree_level: i32,
     #[serde(default, rename = "POIdOrgAdmin_TreePath")]
-    poid_org_admin_tree_path: String,
+    pub poid_org_admin_tree_path: String,
     #[serde(default, rename = "POIdOrgReserve2")]
-    poid_org_reserve2: i32,
+    pub poid_org_reserve2: i32,
     #[serde(default, rename = "POIdOrgReserve3")]
-    poid_org_reserve3: i32,
+    pub poid_org_reserve3: i32,
     #[serde(default, rename = "POIdOrgReserve4")]
-    poid_org_reserve4: i32,
+    pub poid_org_reserve4: i32,
     #[serde(default, rename = "POIdOrgReserve5")]
-    poid_org_reserve5: i32,
+    pub poid_org_reserve5: i32,
     #[serde(default, rename = "PersonInCharge")]
-    person_in_charge: u32,
+    pub person_in_charge: u32,
     #[serde(default, rename = "Place")]
-    place: String,
+    pub place: String,
     #[serde(default, rename = "SecondLevelOrganization")]
-    second_level_organization: u32,
+    pub second_level_organization: u32,
     #[serde(default, rename = "ShortName")]
-    short_name: String,
+    pub short_name: String,
     #[serde(
         default = "datetime::default",
         rename = "StartDate",
         with = "date_format"
     )]
-    start_date: DateTime<Utc>,
+    pub start_date: DateTime<Utc>,
     #[serde(default, rename = "Status")]
-    status: u8,
+    pub status: u8,
     #[serde(default, rename = "StdIsDeleted")]
-    std_is_deleted: bool,
+    pub std_is_deleted: bool,
     #[serde(
         default = "datetime::default",
         rename = "StopDate",
         with = "date_format"
     )]
-    stop_date: DateTime<Utc>,
+    pub stop_date: DateTime<Utc>,
 }
