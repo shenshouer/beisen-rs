@@ -1,4 +1,4 @@
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, Local};
 use serde::{Deserialize, Serialize};
 
 use crate::utils::datetime::{self, date_format};
@@ -12,7 +12,7 @@ pub struct JobPost {
         rename = "CreatedTime",
         with = "date_format"
     )]
-    pub created_time: DateTime<Utc>,
+    pub created_time: DateTime<Local>,
     #[serde(rename = "Name")]
     pub name: String,
     #[serde(rename = "OId")]

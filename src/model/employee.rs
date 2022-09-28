@@ -1,4 +1,4 @@
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, Local};
 use serde::{Deserialize, Serialize};
 
 use crate::utils::datetime::{self, date_format};
@@ -23,7 +23,7 @@ pub struct EmployeeServiceInfo {
     pub business_modified_by: u32,
     #[serde(rename = "BusinessModifiedTime", with = "date_format")]
     // 业务修改时间	BusinessModifiedTime	dateTime	✔️	✔️	最后的业务修改时间
-    pub business_modified_time: DateTime<Utc>,
+    pub business_modified_time: DateTime<Local>,
     // 机构	OIdOrganization	integer	✔️	✔️
     #[serde(rename = "OIdOrganization")]
     pub organization_id: u32,
@@ -44,13 +44,13 @@ pub struct EmployeeServiceInfo {
     pub place: String,
     // 入职日期	EntryDate	dateTime	✔️	✔️
     #[serde(rename = "EntryDate", with = "date_format")]
-    pub entry_date: DateTime<Utc>,
+    pub entry_date: DateTime<Local>,
     // 生效日期	StartDate	dateTime	✔️	✔️
     #[serde(rename = "StartDate", with = "date_format")]
-    pub start_date: DateTime<Utc>,
+    pub start_date: DateTime<Local>,
     // 失效日期	StopDate	dateTime	✔️	✔️
     #[serde(rename = "StopDate", with = "date_format")]
-    pub stop_date: DateTime<Utc>,
+    pub stop_date: DateTime<Local>,
     // 人员状态	EmployeeStatus	string	❌	✔️
     #[serde(default, rename = "EmployeeStatus")]
     pub employee_status: String,
@@ -81,21 +81,21 @@ pub struct EmployeeServiceInfo {
         with = "date_format"
     )]
     // 试用开始日期	ProbationStartDate	dateTime	✔️	✔️
-    pub probation_start_date: DateTime<Utc>,
+    pub probation_start_date: DateTime<Local>,
     #[serde(
         default = "datetime::default",
         rename = "ProbationStopDate",
         with = "date_format"
     )]
     // 预计试用结束日期	ProbationStopDate	dateTime	✔️	✔️
-    pub probation_stop_date: DateTime<Utc>,
+    pub probation_stop_date: DateTime<Local>,
     // 实际试用结束日期	ProbationActualStopDate	dateTime	✔️	✔️
     #[serde(
         default = "datetime::default",
         rename = "ProbationActualStopDate",
         with = "date_format"
     )]
-    pub probation_actual_stop_date: DateTime<Utc>,
+    pub probation_actual_stop_date: DateTime<Local>,
     // 试用期(月)	Probation	integer	✔️	✔️
     #[serde(default, rename = "Probation")]
     pub probation: u8,
@@ -105,7 +105,7 @@ pub struct EmployeeServiceInfo {
         rename = "RegularizationDate",
         with = "date_format"
     )]
-    pub regularization_date: DateTime<Utc>,
+    pub regularization_date: DateTime<Local>,
     // 顺序号	Order	integer	✔️	✔️
     #[serde(default, rename = "Order")]
     pub order: u32,
@@ -157,7 +157,7 @@ pub struct EmployeeServiceInfo {
         rename = "LastWorkDate",
         with = "date_format"
     )]
-    pub last_work_date: DateTime<Utc>,
+    pub last_work_date: DateTime<Local>,
     // OId	OId	string	❌	✔️
     #[serde(rename = "OId")]
     pub oid: String,
@@ -169,10 +169,10 @@ pub struct EmployeeServiceInfo {
     pub modified_by: u32,
     // 创建时间	CreatedTime	dateTime	❌	✔️
     #[serde(rename = "CreatedTime", with = "date_format")]
-    pub created_time: DateTime<Utc>,
+    pub created_time: DateTime<Local>,
     // 修改时间	ModifiedTime	dateTime	❌	✔️
     #[serde(rename = "ModifiedTime", with = "date_format")]
-    pub modified_time: DateTime<Utc>,
+    pub modified_time: DateTime<Local>,
     // 是否删除	IsDeleted	boolean	❌	✔️
     #[serde(rename = "IsDeleted")]
     pub is_deleted: bool,
@@ -238,7 +238,7 @@ pub struct EmployeeBasicInfo {
     pub name: String,
     #[serde(rename = "BusinessModifiedTime", with = "date_format")]
     // 业务修改时间	BusinessModifiedTime	dateTime	✔️	✔️	最后的业务修改时间
-    pub business_modified_time: DateTime<Utc>,
+    pub business_modified_time: DateTime<Local>,
     #[serde(rename = "BusinessModifiedBy")]
     // 业务修改人	BusinessModifiedBy	integer	✔️	✔️	最后的业务修改人
     pub business_modified_by: u32,
@@ -316,13 +316,13 @@ pub struct EmployeeBasicInfo {
     pub created_by: u32,
     // 创建时间	CreatedTime	dateTime	❌	✔️
     #[serde(rename = "CreatedTime", with = "date_format")]
-    pub created_time: DateTime<Utc>,
+    pub created_time: DateTime<Local>,
     // 修改人	ModifiedBy	integer	❌	✔️
     #[serde(rename = "ModifiedBy")]
     pub modified_by: u32,
     // 修改时间	ModifiedTime	dateTime	❌	✔️
     #[serde(rename = "ModifiedTime", with = "date_format")]
-    pub modified_time: DateTime<Utc>,
+    pub modified_time: DateTime<Local>,
     #[serde(default, rename = "StdIsDeleted")]
     // 删除状态	StdIsDeleted	boolean	❌	✔️	此字段为系统自动创建，请勿删除
     pub std_is_deleted: bool,
@@ -350,21 +350,21 @@ pub struct EmployeeBasicInfo {
         rename = "EntryDate",
         with = "date_format"
     )]
-    pub entry_date: DateTime<Utc>,
+    pub entry_date: DateTime<Local>,
     // 首次进入公司日期	FirstEntryDate	dateTime	✔️	✔️	记录员工首次进入该公司的日期
     #[serde(
         default = "datetime::default",
         rename = "FirstEntryDate",
         with = "date_format"
     )]
-    pub first_entry_date: DateTime<Utc>,
+    pub first_entry_date: DateTime<Local>,
     // 最新进入公司日期	LatestEntryDate	dateTime	✔️	✔️	记录员工最后一次进入本公司的日期
     #[serde(
         default = "datetime::default",
         rename = "LatestEntryDate",
         with = "date_format"
     )]
-    pub latest_entry_date: DateTime<Utc>,
+    pub latest_entry_date: DateTime<Local>,
     // 工号	JobNumber	string	✔️	✔️
     #[serde(default, rename = "JobNumber")]
     pub work_number: String,

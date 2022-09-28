@@ -1,4 +1,4 @@
-use chrono::{DateTime, TimeZone, Utc};
+use chrono::{DateTime, Local, TimeZone};
 use serde::{self, Deserialize, Deserializer, Serializer};
 
 // const FORMAT: &str = "%Y-%m-%d %H:%M:%S";
@@ -12,7 +12,7 @@ const FORMAT: &str = "%Y-%m-%dT%H:%M:%S.%f";
 //        S: Serializer
 //
 // although it may also be generic over the input types T.
-pub fn serialize<S>(date: &DateTime<Utc>, serializer: S) -> Result<S::Ok, S::Error>
+pub fn serialize<S>(date: &DateTime<Local>, serializer: S) -> Result<S::Ok, S::Error>
 where
     S: Serializer,
 {
@@ -27,11 +27,12 @@ where
 //        D: Deserializer<'de>
 //
 // although it may also be generic over the output types T.
-pub fn deserialize<'de, D>(deserializer: D) -> Result<DateTime<Utc>, D::Error>
+pub fn deserialize<'de, D>(deserializer: D) -> Result<DateTime<Local>, D::Error>
 where
     D: Deserializer<'de>,
 {
     let s = String::deserialize(deserializer)?;
-    Utc.datetime_from_str(&s, FORMAT)
+    Local
+        .datetime_from_str(&s, FORMAT)
         .map_err(serde::de::Error::custom)
 }

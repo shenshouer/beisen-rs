@@ -21,7 +21,7 @@ async fn main() -> anyhow::Result<()> {
     //     // .await?;
     // info!("{:?}", r);
 
-    let opt = beisen::dto::SearchEmployeeTimeWindowOption::new_with_minutes(1, 10);
+    let opt = beisen::dto::SearchEmployeeTimeWindowOption::new_with_minutes(1, 120);
     let r = client.search_employee_with_timewindow(&opt).await?;
     info!("{}", serde_json::to_string(&r)?);
     Ok(())

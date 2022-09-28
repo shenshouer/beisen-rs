@@ -1,4 +1,4 @@
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, Local};
 use serde::{Deserialize, Serialize};
 
 use crate::utils::datetime::{self, date_format};
@@ -16,7 +16,7 @@ pub struct JobLevel {
         rename = "CreatedTime",
         with = "date_format"
     )]
-    pub created_time: DateTime<Utc>,
+    pub created_time: DateTime<Local>,
     #[serde(rename = "IsDeleted")]
     pub is_deleted: bool,
     #[serde(rename = "Level")]

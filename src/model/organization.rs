@@ -1,4 +1,4 @@
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, Local};
 use serde::{Deserialize, Serialize};
 
 use crate::utils::datetime::{self, date_format};
@@ -14,13 +14,13 @@ pub struct Organization {
         rename = "BusinessModifiedTime",
         with = "date_format"
     )]
-    pub business_modified_time: DateTime<Utc>,
+    pub business_modified_time: DateTime<Local>,
     #[serde(
         default = "datetime::default",
         rename = "ChangeDate",
         with = "date_format"
     )]
-    pub change_date: DateTime<Utc>,
+    pub change_date: DateTime<Local>,
     #[serde(default, rename = "Code")]
     pub code: String,
     #[serde(rename = "CreatedBy")]
@@ -30,13 +30,13 @@ pub struct Organization {
         rename = "CreatedTime",
         with = "date_format"
     )]
-    pub created_time: DateTime<Utc>,
+    pub created_time: DateTime<Local>,
     #[serde(
         default = "datetime::default",
         rename = "EstablishDate",
         with = "date_format"
     )]
-    pub establish_date: DateTime<Utc>,
+    pub establish_date: DateTime<Local>,
     #[serde(default, rename = "FirstLevelOrganization")]
     pub first_level_organization: u32,
     #[serde(default, rename = "HRBP")]
@@ -54,7 +54,7 @@ pub struct Organization {
         rename = "ModifiedTime",
         with = "date_format"
     )]
-    pub modified_time: DateTime<Utc>,
+    pub modified_time: DateTime<Local>,
     #[serde(rename = "Name")]
     pub name: String,
     #[serde(rename = "OId")]
@@ -92,7 +92,7 @@ pub struct Organization {
         rename = "StartDate",
         with = "date_format"
     )]
-    pub start_date: DateTime<Utc>,
+    pub start_date: DateTime<Local>,
     #[serde(default, rename = "Status")]
     pub status: u8,
     #[serde(default, rename = "StdIsDeleted")]
@@ -102,5 +102,5 @@ pub struct Organization {
         rename = "StopDate",
         with = "date_format"
     )]
-    pub stop_date: DateTime<Utc>,
+    pub stop_date: DateTime<Local>,
 }

@@ -210,7 +210,7 @@ pub(crate) const REQUEST_EMPLOYEE_COLUMNS: &[&str] = &[
 ];
 
 use crate::utils::datetime::date_format;
-use chrono::{DateTime, Duration, Utc};
+use chrono::{DateTime, Duration, Local};
 use serde::Serialize;
 
 #[derive(Debug, Serialize)]
@@ -224,9 +224,9 @@ pub struct SearchEmployeeTimeWindowOption {
     #[serde(rename(serialize = "IsGetLatestRecord"))]
     is_get_latest_record: bool,
     #[serde(rename(serialize = "StartTime"), with = "date_format")]
-    start_time: DateTime<Utc>,
+    start_time: DateTime<Local>,
     #[serde(rename(serialize = "StopTime"), with = "date_format")]
-    stop_time: DateTime<Utc>,
+    stop_time: DateTime<Local>,
     #[serde(rename(serialize = "WithDisabled"))]
     with_disabled: bool,
     #[serde(rename(serialize = "WithDeleted"))]
@@ -240,7 +240,7 @@ pub struct SearchEmployeeTimeWindowOption {
 }
 
 impl SearchEmployeeTimeWindowOption {
-    pub fn new(start_time: DateTime<Utc>, stop_time: DateTime<Utc>, page_index: usize) -> Self {
+    pub fn new(start_time: DateTime<Local>, stop_time: DateTime<Local>, page_index: usize) -> Self {
         Self {
             emp_status: vec![
                 1,  // 待入职
@@ -281,14 +281,14 @@ impl SearchEmployeeTimeWindowOption {
 
     // 距离当前N分钟参数
     pub fn new_with_minutes(page_index: usize, minutes: i64) -> Self {
-        let stop_time = Utc::now();
+        let stop_time = Local::now();
         let start_time = stop_time - Duration::minutes(minutes);
         SearchEmployeeTimeWindowOption::new(start_time, stop_time, page_index)
     }
 
     // 距离当前N天参数
     pub fn new_with_days(page_index: usize, days: i64) -> Self {
-        let stop_time = Utc::now();
+        let stop_time = Local::now();
         let start_time = stop_time - Duration::days(days);
         SearchEmployeeTimeWindowOption::new(start_time, stop_time, page_index)
     }
