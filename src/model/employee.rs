@@ -236,6 +236,8 @@ pub struct EmployeeBasicInfo {
     pub bank_name: String,
     #[serde(default, rename = "extyhkh_108579_1568158414")]
     pub bank_account: String,
+    #[serde(default, rename = "extxmqp_108579_620185511")]
+    pub pinyin: String,
     #[serde(rename = "Name")]
     /// 姓名	Name	string	✔️	✔️
     pub name: String,

@@ -2,6 +2,7 @@ pub(crate) const REQUEST_EMPLOYEE_COLUMNS: &[&str] = &[
     // 自定义字段
     "extssyh_108579_1632327139", // 收款银行
     "extyhkh_108579_1568158414", // 收款账户
+    "extxmqp_108579_620185511",  // 姓名全拼
     // 员工信息
     "Name",                          // 姓名	Name	string	✔️	✔️
     "BusinessModifiedTime",          // 业务修改时间	BusinessModifiedTime	dateTime	✔️	✔️	最后的业务修改时间
