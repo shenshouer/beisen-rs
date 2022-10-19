@@ -16,7 +16,7 @@ async fn main() -> anyhow::Result<()> {
     );
 
     let kind = beisen::dto::TimeWindowOptionKind::JobPost;
-    let opt = beisen::dto::SearchTimeWindowOption::new_with_days(kind, 1, 360);
+    let opt = beisen::dto::SearchTimeWindowOption::new_with_days(kind, 1, 730);
     let r = client.search_job_post_with_timewindow(&opt).await?;
     info!("{:?}", r);
     Ok(())

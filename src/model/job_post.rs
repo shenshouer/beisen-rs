@@ -17,7 +17,7 @@ pub struct JobPost {
     pub name: String,
     #[serde(rename = "OId")]
     pub oid: String,
-    #[serde(rename = "OIdJobLevelType")]
+    #[serde(rename = "OIdJobLevelType", default)]
     pub oid_job_level_type: String,
     #[serde(rename = "Status")]
     pub status: i32,
