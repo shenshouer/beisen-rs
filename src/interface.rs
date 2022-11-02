@@ -1,6 +1,6 @@
 use async_trait::async_trait;
 
-use super::{
+pub use super::{
     dto::{ObjectName, SearchEmployeeTimeWindowOption, SearchTimeWindowOption},
     model::{contract::Contract, setting::Setting, JobPost},
     Employee, EmployeeBasicInfo, EmployeeServiceInfo, Organization, Result, Token,
