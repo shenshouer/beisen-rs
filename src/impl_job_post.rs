@@ -11,7 +11,7 @@ use super::{
 impl JobPoster for Client {
     //
     // 根据Id集合获取职务数据
-    async fn search_job_post_by_ids(&self, ids: Vec<u32>) -> Result<()> {
+    async fn search_job_post_by_ids(&self, ids: Vec<u32>) -> Result<Vec<JobPost>> {
         debug!("search_job_post_by_uids");
         let url = format!(
             "{}/tenantbase/v1/{}/jobpost/ids/search",
@@ -45,10 +45,10 @@ impl JobPoster for Client {
                 return Err(err);
             }
         };
-        let resp: serde_json::Value = resp.json().await?;
-        debug!("{}", resp.to_string());
-        // Ok(resp.json().await?)
-        Ok(())
+        // let resp: serde_json::Value = resp.json().await?;
+        // debug!("{}", resp.to_string());
+        Ok(resp.json().await?)
+        // Ok(())
     }
     //
     // 通过时间窗方式获取指定范围内发生变化的职务数据

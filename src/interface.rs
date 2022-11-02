@@ -56,7 +56,7 @@ pub trait JobPositioner {
 pub trait JobPoster {
     // /v1/{tenantId}/jobpost/ids/search
     // 根据Id集合获取职务数据
-    async fn search_job_post_by_ids(&self, uids: Vec<u32>) -> Result<()>;
+    async fn search_job_post_by_ids(&self, uids: Vec<u32>) -> Result<Vec<JobPost>>;
     // /v1/{tenantId}/jobpost/timewindow/search
     // 通过时间窗方式获取指定范围内发生变化的职务数据
     async fn search_job_post_with_timewindow(
