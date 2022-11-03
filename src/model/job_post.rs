@@ -21,8 +21,8 @@ pub struct JobPost {
     pub oid_job_level_type: String,
     #[serde(rename = "Status")]
     pub status: i32,
-    #[serde(rename = "StdIsDeleted")]
-    pub std_is_deleted: bool,
+    // #[serde(rename = "StdIsDeleted")]
+    // pub std_is_deleted: bool,
     #[serde(rename = "_id")]
     pub id: String,
 }
