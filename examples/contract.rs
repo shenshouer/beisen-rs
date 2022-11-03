@@ -24,6 +24,6 @@ async fn main() -> anyhow::Result<()> {
     let r = client
         .search_contract_by_uids(vec![120736296, 126029137, 145037483])
         .await?;
-    info!("===>   {:?}", r);
+    info!("===>   {}", serde_json::to_string(&r)?);
     Ok(())
 }
