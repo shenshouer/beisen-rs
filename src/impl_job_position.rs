@@ -30,7 +30,7 @@ impl JobPositioner for Client {
             ],
         });
 
-        let resp = match self.request(&url, post_body).await {
+        let resp = match self.request(None, &url, post_body).await {
             Ok(t) => t,
             Err(err) => {
                 debug!("==>>403");

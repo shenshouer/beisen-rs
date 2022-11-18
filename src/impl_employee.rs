@@ -23,7 +23,7 @@ impl Employeer for Client {
             "Columns": REQUEST_EMPLOYEE_COLUMNS,
         });
 
-        let resp = match self.request(&url, post_body).await {
+        let resp = match self.request(None, &url, post_body).await {
             Ok(t) => t,
             Err(err) => {
                 if err.is_authentication_error() {
@@ -52,7 +52,7 @@ impl Employeer for Client {
             "Columns": REQUEST_EMPLOYEE_COLUMNS,
         });
 
-        let resp = match self.request(&url, post_body).await {
+        let resp = match self.request(None, &url, post_body).await {
             Ok(t) => t,
             Err(err) => {
                 if err.is_authentication_error() {
@@ -76,7 +76,7 @@ impl Employeer for Client {
             "Columns": REQUEST_EMPLOYEE_COLUMNS,
         });
 
-        let resp = match self.request(&url, post_body).await {
+        let resp = match self.request(None, &url, post_body).await {
             Ok(t) => t,
             Err(err) => {
                 if err.is_authentication_error() {
@@ -100,7 +100,7 @@ impl Employeer for Client {
 
         let post_body = serde_json::to_value(opt)?;
 
-        let resp = match self.request(&url, post_body).await {
+        let resp = match self.request(None, &url, post_body).await {
             Ok(t) => t,
             Err(err) => {
                 if err.is_authentication_error() {
@@ -142,9 +142,13 @@ impl Employeer for Client {
             }
         });
 
-        let _resp = match self.request(&url, post_body).await {
+        let _resp = match self
+            .request(Some(reqwest::Method::PUT), &url, post_body)
+            .await
+        {
             Ok(t) => t,
             Err(err) => {
+                println!("{err:?}",);
                 if err.is_authentication_error() {
                     return self.update_email(uid, email).await;
                 }

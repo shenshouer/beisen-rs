@@ -35,7 +35,7 @@ impl JobPoster for Client {
             ],
         });
 
-        let resp = match self.request(&url, post_body).await {
+        let resp = match self.request(None, &url, post_body).await {
             Ok(t) => t,
             Err(err) => {
                 debug!("==>>403");
@@ -63,7 +63,7 @@ impl JobPoster for Client {
 
         let post_body = serde_json::to_value(opt)?;
 
-        let resp = match self.request(&url, post_body).await {
+        let resp = match self.request(None, &url, post_body).await {
             Ok(t) => t,
             Err(err) => {
                 if err.is_authentication_error() {

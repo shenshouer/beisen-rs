@@ -39,7 +39,7 @@ impl Client {
             "Columns": name.get_request_columns(),
         });
 
-        let resp = match self.request(&url, post_body).await {
+        let resp = match self.request(None, &url, post_body).await {
             Ok(t) => t,
             Err(err) => {
                 if err.is_authentication_error() {
@@ -90,7 +90,7 @@ impl Settinger for Client {
             "Columns": name.get_request_columns(),
         });
 
-        let resp = match self.request(&url, post_body).await {
+        let resp = match self.request(None, &url, post_body).await {
             Ok(t) => t,
             Err(err) => {
                 if err.is_authentication_error() {

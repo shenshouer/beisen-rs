@@ -1,3 +1,4 @@
+use reqwest::header::HeaderName;
 use std::str::FromStr;
 use std::sync::Arc;
 use tokio::sync::Mutex;
@@ -26,17 +27,25 @@ impl Client {
     }
 
     // http 请求
-    pub async fn request(&self, url: &str, body: serde_json::Value) -> Result<reqwest::Response> {
+    pub async fn request(
+        &self,
+        method: Option<reqwest::Method>,
+        url: &str,
+        body: serde_json::Value,
+    ) -> Result<reqwest::Response> {
         let token = self.access_token().await?;
         let token = format!("Bearer {}", token.access_token);
         #[allow(clippy::mutable_key_type)]
-        let headers = std::collections::HashMap::from([(
-            reqwest::header::HeaderName::from_str("Authorization")?,
-            token,
-        )]);
+        let headers = std::collections::HashMap::from([
+            (HeaderName::from_str("Authorization")?, token),
+            (
+                HeaderName::from_str("Content-Type")?,
+                String::from("application/json"),
+            ),
+        ]);
 
         let resp = do_http(
-            reqwest::Method::POST,
+            method.unwrap_or(reqwest::Method::POST),
             url,
             Some(headers),
             None,
